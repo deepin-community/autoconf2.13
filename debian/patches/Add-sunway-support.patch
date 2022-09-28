@@ -1,0 +1,30 @@
+Description: Add sunway support
+Author: Miao Changwei <miaochangwei@uniontech.com>
+
+---
+Last-Update: 2022-04-27
+
+--- autoconf2.13-2.13.orig/config.guess
++++ autoconf2.13-2.13/config.guess
+@@ -778,6 +778,10 @@ EOF
+ 		echo "${UNAME_MACHINE}-unknown-linux-gnuaout"
+ 		exit 0
+ 		;;
++	  elf64sw_64*)
++		echo "${UNAME_MACHINE}-unknown-linux-gnuaout"
++		exit 0
++		;;
+ 	  elf32ppc | elf32ppclinux)
+ 		# Determine Lib Version
+ 		cat >$dummy.c <<EOF
+--- autoconf2.13-2.13.orig/config.sub
++++ autoconf2.13-2.13/config.sub
+@@ -220,7 +220,7 @@ case $basic_machine in
+ 		| mips64orion | mips64orionel | mipstx39 | mipstx39el \
+ 		| mips64vr4300 | mips64vr4300el | mips64vr4100 | mips64vr4100el \
+ 		| mips64vr5000 | miprs64vr5000el | mcore \
+-		| sparc | sparclet | sparclite | sparc64 | sparcv9 | v850 | c4x \
++		| sparc | sparclet | sparclite | sparc64 | sparcv9 | sw_64 | v850 | c4x \
+ 		| thumb | d10v | d30v | fr30 | avr)
+ 		basic_machine=$basic_machine-unknown
+ 		;;
